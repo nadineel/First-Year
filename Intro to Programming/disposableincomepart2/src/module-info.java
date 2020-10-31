@@ -1,0 +1,2 @@
+module disposableincomepart2 {
+}

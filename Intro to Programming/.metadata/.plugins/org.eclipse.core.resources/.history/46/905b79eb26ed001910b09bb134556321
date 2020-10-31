@@ -1,0 +1,52 @@
+package stats;
+import java.util.Scanner;
+import java.util.Random;
+public class stats {
+
+	public static void main(String[] args) {
+		Random computerPlay = new Random();
+		Scanner input = new Scanner(System.in);
+		int computerGuess = 1+ computerPlay.nextInt(12);
+		int computerCompare= 1+ computerPlay.nextInt(12);
+		
+		final int ACE = 1;
+		final int JACK = 11;
+		final int QUEEN = 12;
+		final int KING = 13;
+		int yourScore=0;
+		
+		while(yourScore<=4) {
+		System.out.println("The card is a "+ computerGuess);
+		System.out.print("Do you think the next card will be higher, lower or equal?");
+		String userPlay = input.toString();
+			if(userPlay == "higher") {
+				if (computerGuess>computerCompare) {
+					yourScore++;
+				}
+				else {
+					;
+				}
+			}
+			else if(userPlay=="lower") {
+				if (computerGuess>computerCompare) {
+					yourScore++;
+				}
+				else {
+					;
+				}
+			}
+			else if(userPlay=="equal"){
+				if (computerGuess==computerCompare) {
+					yourScore++;
+				}
+				else {
+					;
+				}
+			}
+				
+		
+		
+		}
+	}
+
+}

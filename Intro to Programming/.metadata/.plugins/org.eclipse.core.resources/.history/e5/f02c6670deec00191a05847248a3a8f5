@@ -1,0 +1,27 @@
+package squares;
+import java.util.Scanner;
+public class squares {
+
+	public static void main(String[] args) {
+		
+	Scanner input = new Scanner(System.in);
+	System.out.println("Enter a limit: ");
+	int limit = input.nextInt();
+	
+	int count = 0;
+ while(count*count <= limit) {
+	 if (limit <=0) {
+			System.out.println("Error! Input a Larger whole number.");
+			}
+			else {
+				System.out.print("Answer:"+ count*count +", ");
+				 count++;
+	
+ }
+		
+	}
+ input.close();
+ }
+
+}
+

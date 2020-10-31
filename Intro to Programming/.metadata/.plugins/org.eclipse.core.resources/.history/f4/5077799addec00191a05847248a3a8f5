@@ -1,0 +1,31 @@
+package squares;
+import java.util.Scanner;
+public class squares {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Enter a number: ");
+		Scanner input = new Scanner (System.in);
+	if(input.hasNextInt()) {
+		int numberInput = input.nextInt();
+		int squareroot= (int) (Math.sqrt(numberInput));
+	
+		
+		if (numberInput == 0) {
+			System.out.println("0");
+		}
+		else {
+		for (int currentNumber=0 ;currentNumber<= squareroot ; currentNumber++) {
+			System.out.print(currentNumber==0? "0":", " + currentNumber);
+		}
+		}
+	}
+	else {
+		
+	}
+		System.out.print(".");
+		input.close();
+	}
+
+}
+

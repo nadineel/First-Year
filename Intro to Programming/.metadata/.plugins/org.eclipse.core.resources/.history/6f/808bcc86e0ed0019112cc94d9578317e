@@ -1,0 +1,20 @@
+package week6intestpractice;
+import java.util.Scanner;
+public class bmitry {
+
+	public static void main(String[] args) {
+		
+		Scanner input = new Scanner(System.in);
+		System.out.println("Weight in kilograms:");
+		double weight = input.nextDouble();
+		System.out.println("Height in metres:");
+		double height = input.nextDouble();
+		
+		double bmi = weight/(height*height);
+		System.out.println("Your BMI result is: "+ bmi);
+		
+		input.close();
+
+	}
+
+}

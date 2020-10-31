@@ -1,0 +1,25 @@
+package bmi;
+
+import java.util.Scanner;
+public class bmi {
+
+	public static void main(String[] args) {
+		
+		Scanner input = new Scanner(System.in);
+		System.out.println("weight = ");
+		double weight = input.nextDouble();
+		System.out.println("height = ");
+		double height = input.nextDouble();
+		
+		double bmi = weight/(height*height);
+		
+		float y = (float)Math.round(bmi);
+		
+		System.out.println("your bmi is "+ y);
+		input.close();
+
+
+
+	}
+
+}

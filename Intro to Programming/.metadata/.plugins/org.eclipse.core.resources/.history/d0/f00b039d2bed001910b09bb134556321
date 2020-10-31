@@ -1,0 +1,74 @@
+package week5;
+import java.util.Random;
+import java.util.Scanner;
+public class hilo {
+
+	public static void main(String[] args) {
+		Random generator = new Random();
+		Scanner userGuess = new Scanner(System.in);
+		
+		final int JACK=11;
+		final int QUEEN=12;
+		final int KING=13;
+		final int ACE=14;
+		
+		int card = 2+ generator.nextInt();
+		int guess =1;
+		
+		boolean correct = true;
+		
+		while (guess<=4 && correct) {
+			int cardToCompare = 2+ generator.nextInt();
+			
+			if(card == JACK) {
+				System.out.println("This is a JACK");
+			}
+			else if(card == QUEEN) {
+				System.out.println("This is a QUEEN");
+			}
+			else if(card == KING) {
+				System.out.println("This is a KING");
+			}
+			else if(card == ACE) {
+				System.out.println("This is a ACE");
+			}
+			else {
+				System.out.println("This is a "+ card);
+			}
+			System.out.println("Do you think the next card will be higher, lower or equal?");
+			if(userGuess.hasNext("higher")||userGuess.hasNext("lower")||userGuess.hasNext("equal")) {
+				if(userGuess.hasNext("higher")) {
+					if (card>cardToCompare) {
+						correct = true;
+					}
+					else {
+						correct = false;
+					}
+				}
+				else if(userGuess.hasNext("lower")) {
+					if (card<cardToCompare) {
+						correct = true;
+					}
+					else {
+						correct = false;
+					}
+				}
+				else if(userGuess.hasNext("equal")) {
+					if (card== cardToCompare) {
+						correct = true;
+					}
+					else {
+						correct = false;
+					}
+				}
+				else {
+					System.out.println("Error! enter higher, lower or equal.");
+				}
+			guess++;
+			}
+		}
+		
+		
+	}
+
+}

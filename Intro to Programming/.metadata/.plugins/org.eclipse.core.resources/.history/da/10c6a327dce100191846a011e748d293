@@ -1,0 +1,16 @@
+package myfirstprogram;
+
+public class helloworld {
+
+	public static void main(String[] args) {
+		
+		String number = "10.00";
+		Integer result = Integer.parseInt(number);
+		System.out.print(result);
+	
+		
+		
+
+	}
+
+}

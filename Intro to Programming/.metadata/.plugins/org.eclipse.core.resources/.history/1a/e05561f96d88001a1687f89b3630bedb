@@ -1,0 +1,14 @@
+
+public class TestCircle {
+
+	public static void main(String[] args) {
+		Circle c= new Circle(100.0);
+		
+		System.out.println(String.format("%s %.2f%n%s %.1f",
+				"Perimeter of the circle is", c.getPerimeter(),
+				"Area of the circle is", c.getArea()));
+		
+
+	}
+
+}

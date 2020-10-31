@@ -1,0 +1,25 @@
+package practice;
+import java.util.Scanner;
+public class reveerseDigitsWhile {
+
+	public static void main(String[] args) {
+		Scanner input= new Scanner(System.in);
+		
+		System.out.print("Enter a number:");
+		
+		if(input.hasNextInt()) {
+			int number=input.nextInt();
+			int digit=0;
+			int reverse=0;
+			while(number>0) {
+				digit+=number%10;
+				reverse=digit*10;
+				
+			}
+			
+		}
+		System.out.println("The reverse of "+number+" is "+(reverse/10));
+
+	}
+
+}

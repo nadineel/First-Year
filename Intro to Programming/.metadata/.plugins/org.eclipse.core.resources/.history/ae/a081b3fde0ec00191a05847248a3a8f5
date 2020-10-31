@@ -1,0 +1,36 @@
+package squares;
+
+import java.util.Scanner;
+
+public class squares {
+
+	public static void main(String[] args) {
+
+		Scanner input = new Scanner(System.in);
+		System.out.print("Enter a limit: ");
+		int limit = input.nextInt();
+
+		int count = 0;
+		
+		
+			if (limit <= 0) {
+				System.out.println("Error! Input a Larger whole number.");
+			} else {
+				
+				System.out.print("\"The numbers whose squares are less than or equal to 27 are:");
+				while (count * count <= limit) {
+					int square= count*count;
+				if (count == 0) {
+					System.out.print(Math.sqrt(square));
+				} else {
+					System.out.print(", " + Math.sqrt(square));
+				}
+				count++;
+
+			}
+			System.out.print(".");
+		}
+		input.close();
+	}
+
+}

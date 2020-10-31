@@ -1,0 +1,14 @@
+
+public class TestResizableCircle {
+
+	public static void main(String[] args) {
+		ResizableCircle rC= new ResizableCircle(100);
+
+		rC.resize(-10);
+		System.out.println(10/100);
+		System.out.println(String.format("%.2f%n%.2f",
+		rC.getPerimeter(),rC.getArea()));
+		
+	}
+
+}

@@ -1,0 +1,11 @@
+
+public class TestCircle {
+
+	public static void main(String[] args) {
+		Circle c= new Circle(5);
+		System.out.printf("%.2f%n",c.getPerimeter());
+		System.out.printf("%.2f%n",c.getArea());
+
+	}
+
+}

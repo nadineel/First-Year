@@ -1,0 +1,10 @@
+package theHeir;
+
+public class CommissionEmployee {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

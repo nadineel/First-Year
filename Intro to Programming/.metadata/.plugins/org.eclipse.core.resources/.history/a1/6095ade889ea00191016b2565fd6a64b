@@ -1,0 +1,32 @@
+package numbers;
+import java.util.Scanner;
+public class numbers {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		int number= input.nextInt();
+		System.out.println("Enter a list of numbers:" + number);
+		int maxNumber = number;
+		int minNumber = number;
+		
+		
+		while(input.hasNext()) {
+			number = input.nextInt();
+			if(minNumber>number) {
+				minNumber = number;
+		}
+			else if (maxNumber<number) {
+					maxNumber = number;
+			}
+			else {
+				System.out.print("");
+			}
+		}
+		System.out.print("Max Number= " + maxNumber +" Min Number: " + minNumber);
+		
+	input.close();
+		
+	}
+
+}

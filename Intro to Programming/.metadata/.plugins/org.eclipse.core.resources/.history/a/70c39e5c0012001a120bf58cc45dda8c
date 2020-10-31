@@ -1,0 +1,28 @@
+package practice;
+
+import java.util.Scanner;
+
+public class oddEvenSelection {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+
+		while (true) {
+			System.out.print("Enter a value:");
+			if (input.hasNextInt()) {
+
+				int value = input.nextInt();
+
+				System.out.print(value);
+				System.out.println((value % 2 == 0) ? " is even." : " is odd.");
+
+			} else {
+				System.out.println("Error! Try again!");
+				input.next();
+			}
+
+		}
+
+	}
+
+}

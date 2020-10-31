@@ -1,0 +1,30 @@
+package theHeir;
+
+public class Student extends Person{
+
+	private final double gpa;
+	
+	Student(String firstName,String lastName, String address, int id, double gpa){
+		super(firstName,lastName, address, id);
+		this.gpa=gpa;
+	}
+	
+	
+	public double getGpa() {
+		return gpa;
+	}
+	
+	@Override
+	public void display() {
+		String.format("%s: %s%n%s: %s%n%s: %s%n%s: %s%n%s: %.2f%n", "First Name",super.getFirstName(),"Last Name",super.getLastName(),
+								"Address",super.getAddress(),"Student ID",super.getId(),"GPA",gpa);
+	}
+
+
+	public static void main(String[] args) {
+		Student banana=new Student("Rich","Kid","No Home", 1234, 1.0);
+		System.out.println(banana);
+
+	}
+
+}

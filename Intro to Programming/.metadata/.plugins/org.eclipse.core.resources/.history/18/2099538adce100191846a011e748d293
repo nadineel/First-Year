@@ -1,0 +1,20 @@
+package myfirstprogram;
+
+public class helloworld {
+
+	public static void main(String[] args) {
+		
+		String number = "1";
+		Integer result = Integer.parseInt(number);
+		System.out.print(result);
+	
+		int a = -5;
+		int b = Math.abs(a);
+		System.out.println(a);
+		System.out.println(b);
+		
+		
+
+	}
+
+}

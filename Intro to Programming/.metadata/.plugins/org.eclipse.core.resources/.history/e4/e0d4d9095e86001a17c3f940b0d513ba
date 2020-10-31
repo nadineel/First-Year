@@ -1,0 +1,84 @@
+package finalPractice;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Date;
+
+public class HRDepartment {
+	
+	Collection<Employee> employeeList;
+	public HRDepartment(){
+		employeeList= new ArrayList<Employee>();
+		
+	}
+	
+	public void addEmployee(int employeeId, String name, int role) {
+		Employee a= new Employee(employeeId, name, role);
+		employeeList.add(a);
+	}
+	public void printAllEmployees() {
+		for (Employee e : employeeList)// Enhanced for statement				/////////////////////
+			System.out.println(String.format("%s: %s%n%s: %s%n%s: %s%n%s: %s%n%s: %s",    
+			         "Employee ID", e.getEmployeeId(),                    
+			         "Name", e.getName(),                
+			         "Promotion Date", e.getPromotionDate(),                                     
+			         "Role", e.getRole(),
+					"Appraisal History", e.getAppraisalHistory()));		//(employeeId, name, promotionDate, role & appraisalHistory).
+	}
+	public Employee findEmployee(int employeeId) {
+		for(Employee e: employeeList) {
+			if (e.getEmployeeId()==employeeId) {
+				return e;
+			}
+		}
+		return null;
+	}
+	public boolean recordEmployeeAppraisal(int employeeId, Date appraisalDate, int score) {
+		
+			Employee e=findEmployee(employeeId);
+			if(e!=null) {
+			EmployeeAppraisal eA= new EmployeeAppraisal(appraisalDate,score);
+			e.getAppraisalHistory().add(eA);
+			return true;
+			}
+			else {
+			return false;
+			}	
+	}
+	public boolean promoteEmployee(int employeeId) {
+		Calendar calendar =	Calendar.getInstance();
+		calendar.setTime(new Date());
+		Date date = calendar.getTime();
+		
+		Calendar endCalendar = Calendar.getInstance();
+				calendar.setTime(new Date());
+				calendar.add(Calendar.YEAR,-1);
+				Date endDate = endCalendar.getTime();
+		try {
+			Employee e= findEmployee(employeeId);
+			if((e.getAppraisalHistory().get(e.getAppraisalHistory().size()).getAppraisalScore()==HRCodes.EXCEEDED_EXPECTATIONS) &&
+					(e.getAppraisalHistory().get(e.getAppraisalHistory().size()-1).getAppraisalScore()==HRCodes.EXCEEDED_EXPECTATIONS) &&
+					(date.before(endDate))) {
+				if((e.getAppraisalHistory().get(e.getAppraisalHistory().size()).getAppraisalScore())!=1) {
+					e.getAppraisalHistory().get(e.getAppraisalHistory().size()).setAppraisalScore(
+							(e.getAppraisalHistory().get(e.getAppraisalHistory().size()).getAppraisalScore())-1);	
+				}	
+			}
+			return true;
+		}
+		catch(Exception e) {
+			return false;
+		}
+		//(a) find the Employee with the provided employeeId,
+		//(b) check the last two appraisal scores in the Employee appraisal history collection ensuring both are
+		//“exceeded expectations” (use the HRCodes interface for constants),
+		//(c) ensure that the last promotion was at least a year ago,
+		//(d) if (b) and (c) are satisfied, update the employee role as follows (a tester is promoted to a developer,
+		//developer to a designer, designer to a manager, and manager to an executive [use the HRCodes
+		//interface for constants]), set the promotion date to today’s date, and return true. PTO for sample
+		//code to get the current date and last year’s date. 
+		
+		
+	}
+}

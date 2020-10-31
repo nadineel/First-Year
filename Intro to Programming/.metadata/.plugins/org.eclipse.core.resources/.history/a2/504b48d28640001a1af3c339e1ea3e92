@@ -1,0 +1,63 @@
+package dontKnowWhatThisIsFor;
+
+public class toGETher {
+	
+	private String name; 
+	private int age;
+
+	public static void main(String[] args) {
+		
+		toGETher account= new toGETher();				//this is how to make an object! creating object account
+		
+		account.setName("Nadine");
+		account.setAge(123);
+		
+		System.out.println(account.getName());
+		System.out.println(account.getAge());
+
+		account.printDetails();								//not using static because only accessing from the class. hence we use 
+															// account which is a method from the class??
+	}
+	
+	/*public void setName(String name) {
+															// confused parameter or the name on top?? 
+															//hence we use "this" to pertain to the name from account not the parameter
+		this.name= name;
+	}
+	
+	public void setAge(int age) {
+		// confused parameter or the name on top?? hence we use "this" to pertain to the name from account not the parameter
+		this.age= age;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public int getAge() {
+		return this.age;
+	}
+	*/
+																				//right click source getter and setters!!!!!!!!!
+	
+	public void printDetails() {
+		System.out.println(name +" ,"+age);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+}

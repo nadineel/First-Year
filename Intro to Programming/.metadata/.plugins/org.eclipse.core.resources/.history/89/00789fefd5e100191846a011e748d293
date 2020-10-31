@@ -1,0 +1,14 @@
+package myfirstprogram;
+
+public class helloworld {
+
+	public static void main(String[] args) {
+		// print helloworld in the terminal
+		System.out.println("Hello World!");
+		System.out.println("args[0]");
+		System.out.println("How are you?");
+		
+
+	}
+
+}

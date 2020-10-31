@@ -1,0 +1,26 @@
+package bmi;
+import javax.swing.JOptionPane;
+import java.util.Scanner;
+public class bmi {
+
+	public static void main(String[] args) {
+		
+		String weightInput = JOptionPane.showInputDialog(null, "Your weight in kilograms:");
+		Scanner weightScanner = new Scanner(weightInput);
+		double weight = weightScanner.nextDouble();
+		String heightInput = JOptionPane.showInputDialog(null, "Your height in metres:");
+		Scanner heightScanner = new Scanner(heightInput);
+		double height = heightScanner.nextDouble();
+		
+		double bmi = weight/(height*height);
+		
+		JOptionPane.showMessageDialog(null, "your bmi is" + bmi);
+		
+		weightScanner.close();
+		heightScanner.close();
+		
+
+
+	}
+
+}

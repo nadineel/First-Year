@@ -1,0 +1,102 @@
+package week5;
+import java.util.Random;
+import java.util.Scanner;
+public class hilo {
+
+	public static void main(String[] args) {
+		Random generator = new Random();
+		Scanner userGuess = new Scanner(System.in);
+		
+		final int JACK=11;
+		final int QUEEN=12;
+		final int KING=13;
+		final int ACE=14;
+		
+		int card = 1+ generator.nextInt(14);
+		int guess =1;
+		
+		boolean correct = true;
+		
+		while (guess<=4 && correct) {
+			int cardToCompare = 1+ generator.nextInt(14);
+			
+			if(card == JACK) {
+				System.out.println("This is a JACK");
+			}
+			else if(card == QUEEN) {
+				System.out.println("This is a QUEEN");
+			}
+			else if(card == KING) {
+				System.out.println("This is a KING");
+			}
+			else if(card == ACE) {
+				System.out.println("This is a ACE");
+			}
+			else {
+				System.out.println("This is a "+ card);
+			}
+			System.out.println("Do you think the next card will be higher, lower or equal?");
+			
+			if(userGuess.hasNext("higher")||userGuess.hasNext("lower")||userGuess.hasNext("equal")) {
+				if(userGuess.hasNext("higher")) {
+					if (card<cardToCompare) {
+						correct = true;
+					}
+					else {
+						correct = false;
+					}
+					userGuess.next();
+				}
+				else if(userGuess.hasNext("lower")) {
+					if (card>cardToCompare) {
+						correct = true;
+					}
+					else {
+						correct = false;
+					}
+					userGuess.next();
+				}
+				else {
+					if (card== cardToCompare) {
+						correct = true;
+					}
+					else {
+						correct = false;
+					}
+					userGuess.next();
+				}
+				
+			}
+			
+			else {
+					System.out.println("Error! enter higher, lower or equal.");
+				}
+			guess++;
+			
+		}
+			if(correct) {
+				System.out.println("Congratulations.  You got them all correct.");
+			}
+			else {
+				System.out.println("Unfortunately, you lost the game");
+				if (card == JACK) {
+					System.out.println("The card was a Jack");
+				} else if (card == QUEEN) {
+					System.out.println("The card was a Queen");
+				} else if (card == KING) {
+					System.out.println("The card was a King");
+				} else if (card == ACE) {
+					System.out.println("The card was an Ace");
+				}
+
+				else {
+					System.out.println("The card was a " + card);
+				}
+			}
+			
+		
+		userGuess.close();
+		
+	}
+
+}

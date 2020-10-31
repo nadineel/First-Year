@@ -1,0 +1,84 @@
+package week10;
+
+import java.text.DecimalFormatSymbols;
+import java.util.Scanner;
+
+public class assignment {
+	static Scanner input=new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		boolean quit=false;
+		
+	do {
+		
+//insert here
+			double mortgageAmount=readDoubleFromUser("Please enter the mortgage amount: "); 
+			double annualInterestRate= readDoubleFromUser("Please enter the annual interest rate(APR): ");
+			
+			System.out.println("Assuming a 20 year term, the monthly repayments would be " 
+								+calculateMonthlyRepayment(mortgageAmount, 20, annualInterestRate ));
+			double payMonthly=readDoubleFromUser("How much can you afford to pay per month?");
+		System.out.println("If you pay "+payMonthly+" per month your mortgage would be paid off in "
+								+calculateMonthsToRepayMortgage(mortgageAmount, payMonthly, annualInterestRate )+" months");
+		
+		
+		
+		System.out.print("Would you like to use the mortgage calcuator again?(yes/no)");
+			if(input.hasNext("no")) {
+				quit=true;
+			}
+	}
+			while(!quit);
+	} 
+	
+	public static double readDoubleFromUser(String question) {
+		//System.out.print(question);		
+			
+		
+			while (true) {
+		        System.out.print(question);
+		        
+		        try {
+		            double amount = input.nextDouble();
+		            return amount;
+		        }catch (java.util.InputMismatchException e) {
+		        	input.next();
+		        }
+		        }
+		}
+
+	public static double calculateMonthlyRepayment(double principal, int duration, 
+									double apr) {
+		
+		double denominatorOfEquation=Math.pow((double)((1+apr/12/100)), ((double)-duration*12));
+		double monthlyRepayment=principal*(apr/12/100)/(1-denominatorOfEquation);		
+		return monthlyRepayment;
+				
+	}
+	public static double calculateMonthsToRepayMortgage(double mortgageAmount, double monthlyRepaid, double annualInterest ) {
+//		int monthsToRepay=1;
+		
+/*		for(int month=0;mortgageAmount>=0;month++) {
+		mortgageAmount=mortgageAmount+mortgageAmount*(annualInterest/12)-monthlyRepaid;
+			payment=month*monthlyRepaid;
+			
+			monthsToRepay=month;
+		}
+		
+		return monthsToRepay;
+		}
+*/
+		double monthsToRepay= ( (-Math.log(1-(annualInterest/12)*mortgageAmount))/Math.log(1+(annualInterest/12)));
+		
+		return monthsToRepay;
+		}
+	
+		
+		
+		
+		
+	
+		
+		
+	}
+

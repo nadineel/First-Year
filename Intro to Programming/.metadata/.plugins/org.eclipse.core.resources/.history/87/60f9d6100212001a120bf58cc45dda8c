@@ -1,0 +1,50 @@
+package practice;
+
+import java.util.Scanner;
+
+public class multiplesLoops {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+
+		while (true) {
+			System.out.print("Enter a positive integer:");
+			if (input.hasNextInt()) {
+				int number = input.nextInt();
+				if (number < 0) {
+					System.out.print("Try again!\n");
+				} else {
+					System.out.print("Up to what limit?");
+					if (input.hasNextInt()) {
+						int limit = input.nextInt();
+
+						try {
+							int displayedNumbers = limit / number;
+
+							System.out.print("The multiples of " + number + " (up to " + limit + ")");
+							System.out.print((displayedNumbers <= 1) ? " is 0.\n" : " are 0");
+							if (displayedNumbers > 1) {
+								for (int count = 1; count <= displayedNumbers; count++) {
+									System.out.print("," + (count * number));
+								}
+								System.out.print(".\n");
+							}
+						} catch (java.lang.ArithmeticException exception) {
+							System.out.print("Error!!! Cant divide by 0.\n");
+						}
+					} else {
+						System.out.print("Try again.");
+						input.next();
+					}
+
+				}
+			} else {
+				System.out.print("Try again.\n");
+				input.next();
+			}
+		}
+		
+	}
+	
+
+}

@@ -1,0 +1,11 @@
+//Module to implement 4-bit binary adder
+
+module 4bitAdder(Sum, Carry_out, Addend, Augend, Carry_in);
+
+output [3:0] Sum;
+output Carry_out;
+input [3:0]addend;
+input [3:0]augend;
+input Carry_in;
+wire [3:1] c;
+

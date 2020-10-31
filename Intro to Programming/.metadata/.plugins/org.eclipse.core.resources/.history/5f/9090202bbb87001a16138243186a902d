@@ -1,0 +1,62 @@
+package practice2;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Inventory {
+	
+	public ArrayList<Item> itemList= new ArrayList<Item>();
+	private ArrayList<Order> orderList= new ArrayList<Order>();
+	
+	public void addItem(String itemName, double itemPrice,int itemQuantity) {
+		/*This method is required create an item (using the provided parameters) and add it to the
+		next available position in the items collection. Each item requires a unique ID. What
+		happens if there is an item in the item inventory with the same name and price as the item
+		to be added?*/
+		Long id= (long) itemList.size();
+		Item myItem= new Item(id,itemName, itemPrice, itemQuantity);
+		itemList.add(myItem);
+	}
+	public void createOrder(Item item) {
+		Order myOrder= new Order(item);
+		myOrder.setOrderID(orderList.size());
+		orderList.add(myOrder);
+	}
+	//This method is required to create an order and add it to the first available position in the
+	//orders collection. Each order requires a unique ID.
+	public static void main(String[] args) {
+		Inventory myInventory= new Inventory();
+		Scanner input= new Scanner(System.in);
+		System.out.println("How many items he/she would like to create?");
+		if(input.hasNextInt()) {
+			int items= input.nextInt();
+			if(items>0) {
+				for(int i=0; i<items; i++) {
+					System.out.println("What is the name of item number "+(i+1)+"?");
+					String name= input.next();
+					System.out.println("What is the price of item number "+(i+1)+"?");
+					double price= input.nextDouble();
+					System.out.println("How many items would you like?");
+					int quantity= input.nextInt();
+					
+					myInventory.addItem(name, price, quantity);
+					
+				}
+				for(int j=0; j<items; j++) {
+				myInventory.createOrder(myInventory.itemList.get(j));
+				}
+			}
+			else {
+				System.err.println("Invalid number of items");
+				//use while loop later
+			}
+		}
+	}
+	/*The mainline is required to:
+	a. Create an instance of class Inventory
+	b. Ask the user how many items he/she would like to create and ask the user for the item
+	name, price and quantity for each.
+	c. Initialise the items collection and add each item to it by calling the addItem method.
+	d. Create an order for each item by calling the createOrder method.
+	*/
+}

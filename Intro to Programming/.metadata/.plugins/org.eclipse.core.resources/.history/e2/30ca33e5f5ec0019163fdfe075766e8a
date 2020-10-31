@@ -1,0 +1,36 @@
+package pi;
+import java.util.Scanner;
+public class pi {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("How many terms should be used for the equation? ");
+		
+		int terms = input.nextInt();
+		int counter=1;
+		
+		
+		
+		if (terms==1) {
+			System.out.println("PI = 3");
+		}
+		else if(terms<0) {
+			System.out.println("Error!");
+		}
+		else {
+			double Pi = 3 ;
+			while (counter++<=terms) {
+				int multiple = 2;
+				double part = 4/(multiple++ * multiple++ *multiple);
+				System.out.print("Pi ="+ (Pi + part));
+			}
+			
+			
+		}
+			
+		input.close();
+		
+
+	}
+
+}

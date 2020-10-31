@@ -1,0 +1,5 @@
+package finalPractice;
+
+public interface HRCodes {
+
+}

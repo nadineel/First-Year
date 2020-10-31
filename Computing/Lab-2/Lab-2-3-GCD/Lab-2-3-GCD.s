@@ -1,0 +1,27 @@
+;
+; CSU11021 Introduction to Computing I 2019/2020
+; GCD
+;
+
+	AREA	RESET, CODE, READONLY
+	ENTRY
+
+	LDR R2, = 24	; STORE A VALUE OF a IN R2
+	LDR R3, = 32	; STORE A VALUE OF b IN R3
+while	CMP R2,R3   	; IF THEY ARE NOT EQUAL, DO THE WHILE LOOP
+	BEQ endwhile	; IF EQUAL, BRANCH OUT
+ifstart	CMP R2,R3 	; COMPARE IF R2 > R3
+	BLS elsestart	; BRANCH OUT TO ELSESTART IF NOT SATISFY R2 > R3
+	SUB R2,R2,R3	; STORE ANSWER OF R2-R3 TO R0
+	B while		;REPEAT THE LOOP
+elsestart
+	SUB R3,R3,R2	; STORE ANSWEER OF R3-R2 TO R0
+	;B endifelse	; wont work
+	B while
+endifelse
+endwhile; 
+	MOV R0, R2
+
+STOP	B	STOP
+
+	END
